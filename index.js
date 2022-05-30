@@ -23,7 +23,8 @@ let playerOne = false;
 let playerTwo = false;
 let temporyScore = 0;
 let winValue = 100;
-let stock = 0; 
+let stockPlayerOne = 0;
+let stockPlayerTwo = 0;
 // function for roll dice
 function roll() {
   dice.forEach(function (die) {
@@ -57,7 +58,7 @@ function getScore(score) {
       temporyScore = 0;
 
       document.querySelector("#playerOneTemporyScore").innerHTML =
-        "you loose your tempory score, wait your round";
+        "SCORE LOOSE &#128533;";
 
       playerOne = false;
       playerTwo = true;
@@ -75,7 +76,7 @@ function getScore(score) {
       temporyScore = 0;
 
       document.querySelector("#playerTwoTemporyScore").innerHTML =
-        "you loose your tempory score, wait your round";
+        "SCORE LOOSE &#128533;";
 
       playerOne = true;
       playerTwo = false;
@@ -89,23 +90,31 @@ function getScore(score) {
 }
 
 function hold() {
-  stock += toStock;
-  if(playerOne) {
+  if (playerOne) {
+    stockPlayerOne += toStock;
     document.querySelector("#playerOneScoreHeld").innerHTML =
-    "Score held : " + stock;
+      "Score held : " + stockPlayerOne;
     document.querySelector("#playerOneTemporyScore").innerHTML =
-        "you held your tempory score, wait your round";
+      "SCORE HELD ! &#128513;";
     playerOne = false;
     playerTwo = true;
-  } else if(playerTwo){
-    document.querySelector("#playerTwoScoreHeld").innerHTML = "Score held : " + stock;
+    temporyScore = 0;
+    toStock = 0;
+  } else if (playerTwo) {
+    stockPlayerTwo += toStock;
+    document.querySelector("#playerTwoScoreHeld").innerHTML =
+      "Score held : " + stockPlayerTwo;
     document.querySelector("#playerTwoTemporyScore").innerHTML =
-        "you held your tempory score, wait your round";
+      "SCORE HELD !&#128513;";
     playerOne = true;
     playerTwo = false;
+    temporyScore = 0;
+    toStock = 0;
   }
 
-  console.log("score  à stocké : " + toStock + "\n et valeur stocké/additionné " + stock);
+  console.log(
+    "score  à stocké : " + toStock + "\n et valeur stocké/additionné " + stock
+  );
 }
 
 //event for hold the score
@@ -119,6 +128,11 @@ function startGame() {
   arrowLeft.style.display = "block";
 }
 
+btnNewGame.addEventListener("click", () => {
+  location.reload();
+
+});
+
 btnStartGame.addEventListener("click", () => {
   startGame();
 
@@ -127,7 +141,3 @@ btnStartGame.addEventListener("click", () => {
     roll();
   });
 });
-
-btnNewGame.addEventListener("click", () => {
-  location.reload();
-})
