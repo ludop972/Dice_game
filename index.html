@@ -31,8 +31,42 @@
     <div class="bg-game m-5">
       <div ontouchstart="" id="new_game">
         <div class="button mt-2">
-          <a id="buttonStartGame" class="btnNewGame" href="#">Start Game</a>
-          <a id="buttonNewGame" class="btnNewGame" href="#">New Game</a>
+          <a id="buttonStartGame" class="btnNewGame" href="#"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-file-play"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M6 10.117V5.883a.5.5 0 0 1 .757-.429l3.528 2.117a.5.5 0 0 1 0 .858l-3.528 2.117a.5.5 0 0 1-.757-.43z"
+              />
+              <path
+                d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"
+              />
+            </svg>
+            Start Game</a
+          >
+          <a id="buttonNewGame" class="btnNewGame" href="#"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-plus-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+              />
+              <path
+                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+              />
+            </svg>
+            New Game</a
+          >
         </div>
       </div>
       <div class="row mt-5 d-flex justify-content-between">
@@ -66,23 +100,58 @@
       </div>
       <div class="row mt-5">
         <div class="col-sm-4 d-flex justify-content-center">
-          <p id="playerOneTemporyScore">Tempory score :</p>
+          <p id="playerOneTemporyScore">0</p>
         </div>
         <div class="col-sm-4 mb-2 d-flex justify-content-between">
-          <button id="buttonRoll" class="buttonRoll">Roll</button>
-          <button id="buttonHold" class="buttonHold">Hold</button>
+          <button id="buttonRoll" class="buttonRoll">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-repeat"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"
+              />
+            </svg>
+            Roll
+          </button>
+          <button id="buttonHold" class="buttonHold">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-box-arrow-in-down"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1h-2z"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"
+              />
+            </svg>
+            Hold
+          </button>
         </div>
         <div class="col-md-4 d-flex justify-content-center">
-          <p id="playerTwoTemporyScore">Tempory score :</p>
+          <p id="playerTwoTemporyScore">0</p>
         </div>
       </div>
     </div>
 
     <footer class="row text-center fixed-bottom">
       <div>
-        <button class="btn" id="rules">
-          RULES
-        </button>
+        <button class="btn" id="rules">RULES</button>
       </div>
     </footer>
     <script
@@ -95,7 +164,7 @@
       integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
       crossorigin="anonymous"
     ></script>
-    <script src="index.js"></script>
+    <script src="app.js"></script>
     <!-- JavaScript Bundle with Popper -->
   </body>
 </html>

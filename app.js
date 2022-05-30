@@ -11,7 +11,7 @@ let dice = document.querySelectorAll("#die-1");
 arrowLeft.style.display = "none";
 arrowRight.style.display = "none";
 
-let pics = [
+const pics = [
   "de_1.png",
   "de_2.png",
   "de_3.png",
@@ -45,7 +45,7 @@ function roll() {
     dieOneValue = Math.floor(Math.random() * 6) + 1;
 
     document.getElementById("die-1").src =
-      "assets/dice/" + "de_" + dieOneValue + ".png";
+      `assets/dice/de_${dieOneValue}.png`;
 
     temporyScore += dieOneValue;
 
@@ -59,7 +59,7 @@ function getScore(score) {
     toStock = score;
 
     document.querySelector("#playerOneTemporyScore").innerHTML =
-      "Tempory score : " + score;
+      `Tempory score : ${score}`;
 
     if (dieOneValue <= 1) {
       temporyScore = 0;
@@ -78,7 +78,7 @@ function getScore(score) {
     toStock = score;
 
     document.querySelector("#playerTwoTemporyScore").innerHTML =
-      "Tempory score : " + score;
+      `Tempory score : ${score}`;
 
     if (dieOneValue <= 1) {
       temporyScore = 0;
@@ -104,7 +104,7 @@ function hold() {
     stockPlayerOne += toStock;
 
     document.querySelector("#playerOneScoreHeld").innerHTML =
-      "Score held : " + stockPlayerOne;
+      `Score held : ${stockPlayerOne}`;
 
     document.querySelector("#playerOneTemporyScore").innerHTML =
       "SCORE HELD ! &#128513;";
@@ -119,13 +119,13 @@ function hold() {
     toStock = 0;
 
     if(stockPlayerOne >= 100){
-      alert("Player One Win the Game !")
+      win('One');
     }
   } else if (playerTwo) {
     stockPlayerTwo += toStock;
 
     document.querySelector("#playerTwoScoreHeld").innerHTML =
-      "Score held : " + stockPlayerTwo;
+      `Score held : ${stockPlayerTwo}`;
 
     document.querySelector("#playerTwoTemporyScore").innerHTML =
       "SCORE HELD !&#128513;";
@@ -140,7 +140,7 @@ function hold() {
     toStock = 0;
 
     if(stockPlayerTwo >= 100){
-      alert("Player Two Win the Game !")
+      win('Two');
     }
   }
 }
@@ -167,6 +167,7 @@ btnStartGame.addEventListener("click", () => {
   btnRoll.addEventListener("click", () => {
     roll();
   });
+  btnStartGame.remove();
 });
 
 //For watch rules
@@ -188,4 +189,27 @@ rules.addEventListener("click",()=>{
   tour de l’autre joueur.
   - Lancer le dé. S’il obtient un 1, son score temporaire est perdu et c’est la fin de son tour.
   Le premier joueur qui atteint les 100 points sur score held gagne le jeu`);
-})
+});
+
+// function win 
+let win = player => {
+  alert(`Player ${player} Win the Game !`);
+  if(player === 'One') {
+    document.getElementById('P1').innerHTML = "&#127881; Player 1 &#127881;";
+    document.querySelector("#playerOneTemporyScore").innerHTML =
+      "You win ! &#x1F609;";
+      document.querySelector("#playerTwoTemporyScore").innerHTML =
+      "You loose ! &#x1F605;";
+    arrowRight.style.display = "none";
+  } else if(player === 'Two') {
+    document.getElementById('P2').innerHTML = "&#127881; Player 2 &#127881;";
+    document.querySelector("#playerTwoTemporyScore").innerHTML =
+      "You win ! &#x1F609;";
+      document.querySelector("#playerOneTemporyScore").innerHTML =
+      "You loose ! &#x1F605;";
+    arrowLeft.style.display = "none";
+  }
+  btnStartGame.remove();
+  btnRoll.remove();
+  btnHold.remove();
+}

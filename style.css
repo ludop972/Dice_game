@@ -113,13 +113,15 @@ body {
   }
 
   .buttonRoll {
-    background: #3f87a6;
+    color: white;
+    background: #f69d3c;
     border: none;
-    box-shadow: 1px 1px 1px 1px black;
+    box-shadow: 1px 1px 1px 1px #915100;
     border-radius: 4px;
   }
 
   .buttonHold {
+    color: white;
     background: #f69d3c;
     border: none;
     box-shadow: 1px 1px 1px 1px #915100;
