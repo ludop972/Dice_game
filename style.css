@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   background-image: url(assets/others/vegas.jpg);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Lato', sans-serif;
   background-attachment: fixed; 
     background-size: cover;
     color: white;
@@ -66,7 +66,6 @@ body {
     /* button new game*/
   .button .btnNewGame{
     color:white;
-    font-family:Helvetica, sans-serif;
     font-weight:bold;
     font-size:15px;
     text-align: center;
@@ -143,12 +142,32 @@ body {
     }
   }
 
+  #playerTwoTemporyScore {
+    font-size: 20px;
+  }
 
-  @media screen and (min-width: 200px) and (max-width: 640px){
-    .arrow_left {
+  #playerOneTemporyScore {
+    font-size: 20px;
+  }
+
+  #playerOneScoreHeld {
+    font-size: 20px;
+  }
+
+  #playerTwoScoreHeld {
+    font-size: 20px;
+  }
+
+  #rules {
+    color: #FFA12B;
+    background-color: #000;
+  }
+
+  /* @media screen and (min-width: 200px) and (max-width: 640px){
+    .P1 {
       background-color: blue;
     }
-    .arrow_right {
+    .P2 {
       background-color: red;
     }
-  }
+  } */

@@ -4,69 +4,98 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="assets/others/dice.png" />
+    <title>Dice Game</title>
     <!-- CSS only -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="style.css" />
-    <title>Dice Game</title>
   </head>
   <body>
     <h1 class="text-center mt-5">Dice Game</h1>
     <div class="bg-game m-5">
       <div ontouchstart="" id="new_game">
         <div class="button mt-2">
-          <a id="buttonStartGame"  class="btnNewGame" href="#">Start Game</a>
-          <a id="buttonNewGame"  class="btnNewGame" href="#">New Game</a>
+          <a id="buttonStartGame" class="btnNewGame" href="#">Start Game</a>
+          <a id="buttonNewGame" class="btnNewGame" href="#">New Game</a>
         </div>
       </div>
-        <div class="row mt-5 d-flex justify-content-between">
-            <div class="col-md-4 d-flex justify-content-center">
-                <h2>Player 1</h2>
-                <img src="assets/others/arrow-right.png" alt="arrow_step" class="arrow_left">
-            </div>
-            <div class="col-md-4 d-flex justify-content-center">
-                <img src="assets/others/arrow-right.png" alt="arrow_step" class="arrow_right">
-                <h2>Player 2</h2>
-            </div>
+      <div class="row mt-5 d-flex justify-content-between">
+        <div class="col-sm-4 d-flex justify-content-center">
+          <h2 id="P1">Player 1</h2>
+          <img
+            src="assets/others/arrow-right.png"
+            alt="arrow_step"
+            class="arrow_left"
+          />
         </div>
-        <div class="row mt-5">
-            <div class="col-md-4 d-flex justify-content-center score">
-                <p id="playerOneScoreHeld">Score held : </p>
-            </div>
-            <div class="col-md-4 d-flex justify-content-center">
-                  <img src="assets/dice/de_1.png" id="die-1" class="dice">
-            </div>
-            <div class="col-md-4 d-flex justify-content-center score">
-              <p id="playerTwoScoreHeld">Score held : </p>
-            </div>
+        <div class="col-sm-4 d-flex justify-content-center">
+          <img
+            src="assets/others/arrow-right.png"
+            alt="arrow_step"
+            class="arrow_right"
+          />
+          <h2 id="P2">Player 2</h2>
         </div>
-        <div class="row mt-5">
-            <div class="col-md-4 d-flex justify-content-center">
-                <p id="playerOneTemporyScore">Tempory score : </p>
-            </div>
-            <div class="col-md-4 mb-2 d-flex justify-content-between">
-              <button id="buttonRoll" class="buttonRoll">Roll</button>
-              <button id="buttonHold"class="buttonHold">Hold</button>
-            </div>
-            <div class="col-md-4 d-flex justify-content-center">
-              <p id="playerTwoTemporyScore">Tempory score : </p>
-            </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-sm-4 d-flex justify-content-center score">
+          <p id="playerOneScoreHeld">-</p>
         </div>
+        <div class="col-sm-4 d-flex justify-content-center">
+          <img src="assets/dice/de_1.png" id="die-1" class="dice" />
+        </div>
+        <div class="col-sm-4 d-flex justify-content-center score">
+          <p id="playerTwoScoreHeld">-</p>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-sm-4 d-flex justify-content-center">
+          <p id="playerOneTemporyScore">Tempory score :</p>
+        </div>
+        <div class="col-sm-4 mb-2 d-flex justify-content-between">
+          <button id="buttonRoll" class="buttonRoll">Roll</button>
+          <button id="buttonHold" class="buttonHold">Hold</button>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center">
+          <p id="playerTwoTemporyScore">Tempory score :</p>
+        </div>
+      </div>
     </div>
-    <footer class="row text-center fixed-bottom">
-      <p>RULES</p>
-    </footer>
 
-    <script src="index.js"></script>
-    <!-- JavaScript Bundle with Popper -->
+    <footer class="row text-center fixed-bottom">
+      <div>
+        <button class="btn" id="rules">
+          RULES
+        </button>
+      </div>
+    </footer>
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+      integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+    <!-- JavaScript Bundle with Popper -->
   </body>
 </html>

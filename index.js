@@ -5,8 +5,12 @@ let btnRoll = document.getElementById("buttonRoll");
 let btnHold = document.getElementById("buttonHold");
 let arrowLeft = document.querySelector(".arrow_left");
 let arrowRight = document.querySelector(".arrow_right");
+let rules = document.getElementById("rules");
+let dice = document.querySelectorAll("#die-1");
+
 arrowLeft.style.display = "none";
 arrowRight.style.display = "none";
+
 let pics = [
   "de_1.png",
   "de_2.png",
@@ -16,7 +20,7 @@ let pics = [
   "de_6.png",
 ];
 
-let dice = document.querySelectorAll("#die-1"); // sélectionne toute les images de dés donc va shake
+//variables for the game logic
 let dieOneValue;
 let toStock = [];
 let playerOne = false;
@@ -25,6 +29,8 @@ let temporyScore = 0;
 let winValue = 100;
 let stockPlayerOne = 0;
 let stockPlayerTwo = 0;
+
+
 // function for roll dice
 function roll() {
   dice.forEach(function (die) {
@@ -47,9 +53,10 @@ function roll() {
   }, 1000);
 }
 
+//function for get tempory score
 function getScore(score) {
   if (playerOne) {
-    toStock = score; // valeur de stockage
+    toStock = score;
 
     document.querySelector("#playerOneTemporyScore").innerHTML =
       "Tempory score : " + score;
@@ -65,6 +72,7 @@ function getScore(score) {
 
       arrowLeft.style.display = "none";
       arrowRight.style.display = "block";
+
     }
   } else if (playerTwo) {
     toStock = score;
@@ -83,38 +91,58 @@ function getScore(score) {
 
       arrowLeft.style.display = "block";
       arrowRight.style.display = "none";
+
     }
   }
 
   return toStock;
 }
 
+//function for hold the score and next player/win player too
 function hold() {
   if (playerOne) {
     stockPlayerOne += toStock;
+
     document.querySelector("#playerOneScoreHeld").innerHTML =
       "Score held : " + stockPlayerOne;
+
     document.querySelector("#playerOneTemporyScore").innerHTML =
       "SCORE HELD ! &#128513;";
+
     playerOne = false;
     playerTwo = true;
+
+    arrowRight.style.display = "block";
+    arrowLeft.style.display = "none";
+
     temporyScore = 0;
     toStock = 0;
+
+    if(stockPlayerOne >= 100){
+      alert("Player One Win the Game !")
+    }
   } else if (playerTwo) {
     stockPlayerTwo += toStock;
+
     document.querySelector("#playerTwoScoreHeld").innerHTML =
       "Score held : " + stockPlayerTwo;
+
     document.querySelector("#playerTwoTemporyScore").innerHTML =
       "SCORE HELD !&#128513;";
+
     playerOne = true;
     playerTwo = false;
+
+    arrowRight.style.display = "none";
+    arrowLeft.style.display = "block";
+
     temporyScore = 0;
     toStock = 0;
-  }
 
-  console.log(
-    "score  à stocké : " + toStock + "\n et valeur stocké/additionné " + stock
-  );
+    if(stockPlayerTwo >= 100){
+      alert("Player Two Win the Game !")
+    }
+  }
 }
 
 //event for hold the score
@@ -130,7 +158,6 @@ function startGame() {
 
 btnNewGame.addEventListener("click", () => {
   location.reload();
-
 });
 
 btnStartGame.addEventListener("click", () => {
@@ -141,3 +168,24 @@ btnStartGame.addEventListener("click", () => {
     roll();
   });
 });
+
+//For watch rules
+rules.addEventListener("click",()=>{
+  alert(`The game includes 2 players on a single screen.
+  Each player has a temporary score and an overall score (score held).
+  At each turn, the player has his temporary score initialized to 0 and can roll a die as many times as he wishes. the
+  result of a throw is added to the temporary score.
+  During his turn, the player can decide at any time to:
+  - Click on the “Hold” option, which sends the points from the temporary score to the held score. It will then be the
+  other player's turn.
+  - Roll the dice. If he rolls a 1, his temporary score is lost and his turn ends.
+  The first player to reach 100 points on a held score wins the game.` + `\n\n\n TRADUCTION FR : \n\n\n Le jeu comprend 2 joueurs sur un seul et même écran. 
+  Chaque joueur possède un score temporaire et un score global (score held).
+  À chaque tour, le joueur a son tempory score initialisé à 0 et peut lancer un dé autant de fois qu'il le souhaite. Le 
+  résultat d’un lancer est ajouté au tempory score. 
+  Lors de son tour, le joueur peut décider à tout moment de:
+  - Cliquer sur l’option “Hold”, qui permet d’envoyer les points du tempory score vers le score held. Ce sera alors le
+  tour de l’autre joueur.
+  - Lancer le dé. S’il obtient un 1, son score temporaire est perdu et c’est la fin de son tour.
+  Le premier joueur qui atteint les 100 points sur score held gagne le jeu`);
+})
