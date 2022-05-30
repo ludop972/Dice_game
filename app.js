@@ -7,10 +7,11 @@ const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
 const rules = document.getElementById("rules");
 const dice = document.querySelectorAll("#die-1");
+const rollSong = document.querySelector("audio");
 
 arrowLeft.style.display = "none";
 arrowRight.style.display = "none";
-
+btnNewGame.style.display = "none";
 const pics = [
   "de_1.png",
   "de_2.png",
@@ -32,6 +33,8 @@ let stockPlayerTwo = 0;
 
 // function for roll dice
 function roll() {
+  rollSong.play();
+
   dice.forEach(function (die) {
     die.classList.add("shake");
   });
@@ -48,7 +51,7 @@ function roll() {
     temporyScore += dieOneValue;
 
     getScore(Number(temporyScore));
-  }, 1000);
+  }, 1800);
 }
 
 //function for get tempory score
@@ -154,6 +157,7 @@ btnHold.addEventListener("click", () => {
 function startGame() {
   playerOne = true;
   arrowLeft.style.display = "block";
+  btnNewGame.style.display = "block";
 }
 
 btnNewGame.addEventListener("click", () => {
