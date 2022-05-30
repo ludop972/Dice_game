@@ -1,12 +1,12 @@
 //Elements from DOM
-let btnStartGame = document.getElementById("buttonStartGame");
-let btnNewGame = document.getElementById("buttonNewGame");
-let btnRoll = document.getElementById("buttonRoll");
-let btnHold = document.getElementById("buttonHold");
-let arrowLeft = document.querySelector(".arrow_left");
-let arrowRight = document.querySelector(".arrow_right");
-let rules = document.getElementById("rules");
-let dice = document.querySelectorAll("#die-1");
+const btnStartGame = document.getElementById("buttonStartGame");
+const btnNewGame = document.getElementById("buttonNewGame");
+const btnRoll = document.getElementById("buttonRoll");
+const btnHold = document.getElementById("buttonHold");
+const arrowLeft = document.querySelector(".arrow_left");
+const arrowRight = document.querySelector(".arrow_right");
+const rules = document.getElementById("rules");
+const dice = document.querySelectorAll("#die-1");
 
 arrowLeft.style.display = "none";
 arrowRight.style.display = "none";
@@ -30,7 +30,6 @@ let winValue = 100;
 let stockPlayerOne = 0;
 let stockPlayerTwo = 0;
 
-
 // function for roll dice
 function roll() {
   dice.forEach(function (die) {
@@ -44,8 +43,7 @@ function roll() {
 
     dieOneValue = Math.floor(Math.random() * 6) + 1;
 
-    document.getElementById("die-1").src =
-      `assets/dice/de_${dieOneValue}.png`;
+    document.getElementById("die-1").src = `assets/dice/de_${dieOneValue}.png`;
 
     temporyScore += dieOneValue;
 
@@ -58,8 +56,9 @@ function getScore(score) {
   if (playerOne) {
     toStock = score;
 
-    document.querySelector("#playerOneTemporyScore").innerHTML =
-      `Tempory score : ${score}`;
+    document.querySelector(
+      "#playerOneTemporyScore"
+    ).innerHTML = `Tempory score : ${score}`;
 
     if (dieOneValue <= 1) {
       temporyScore = 0;
@@ -72,13 +71,13 @@ function getScore(score) {
 
       arrowLeft.style.display = "none";
       arrowRight.style.display = "block";
-
     }
   } else if (playerTwo) {
     toStock = score;
 
-    document.querySelector("#playerTwoTemporyScore").innerHTML =
-      `Tempory score : ${score}`;
+    document.querySelector(
+      "#playerTwoTemporyScore"
+    ).innerHTML = `Tempory score : ${score}`;
 
     if (dieOneValue <= 1) {
       temporyScore = 0;
@@ -91,7 +90,6 @@ function getScore(score) {
 
       arrowLeft.style.display = "block";
       arrowRight.style.display = "none";
-
     }
   }
 
@@ -103,8 +101,9 @@ function hold() {
   if (playerOne) {
     stockPlayerOne += toStock;
 
-    document.querySelector("#playerOneScoreHeld").innerHTML =
-      `Score held : ${stockPlayerOne}`;
+    document.querySelector(
+      "#playerOneScoreHeld"
+    ).innerHTML = `Score held : ${stockPlayerOne}`;
 
     document.querySelector("#playerOneTemporyScore").innerHTML =
       "SCORE HELD ! &#128513;";
@@ -118,14 +117,15 @@ function hold() {
     temporyScore = 0;
     toStock = 0;
 
-    if(stockPlayerOne >= 100){
-      win('One');
+    if (stockPlayerOne >= 100) {
+      win("One");
     }
   } else if (playerTwo) {
     stockPlayerTwo += toStock;
 
-    document.querySelector("#playerTwoScoreHeld").innerHTML =
-      `Score held : ${stockPlayerTwo}`;
+    document.querySelector(
+      "#playerTwoScoreHeld"
+    ).innerHTML = `Score held : ${stockPlayerTwo}`;
 
     document.querySelector("#playerTwoTemporyScore").innerHTML =
       "SCORE HELD !&#128513;";
@@ -139,8 +139,8 @@ function hold() {
     temporyScore = 0;
     toStock = 0;
 
-    if(stockPlayerTwo >= 100){
-      win('Two');
+    if (stockPlayerTwo >= 100) {
+      win("Two");
     }
   }
 }
@@ -171,8 +171,9 @@ btnStartGame.addEventListener("click", () => {
 });
 
 //For watch rules
-rules.addEventListener("click",()=>{
-  alert(`The game includes 2 players on a single screen.
+rules.addEventListener("click", () => {
+  alert(
+    `The game includes 2 players on a single screen.
   Each player has a temporary score and an overall score (score held).
   At each turn, the player has his temporary score initialized to 0 and can roll a die as many times as he wishes. the
   result of a throw is added to the temporary score.
@@ -180,7 +181,8 @@ rules.addEventListener("click",()=>{
   - Click on the “Hold” option, which sends the points from the temporary score to the held score. It will then be the
   other player's turn.
   - Roll the dice. If he rolls a 1, his temporary score is lost and his turn ends.
-  The first player to reach 100 points on a held score wins the game.` + `\n\n\n TRADUCTION FR : \n\n\n Le jeu comprend 2 joueurs sur un seul et même écran. 
+  The first player to reach 100 points on a held score wins the game.` +
+      `\n\n\n TRADUCTION FR : \n\n\n Le jeu comprend 2 joueurs sur un seul et même écran. 
   Chaque joueur possède un score temporaire et un score global (score held).
   À chaque tour, le joueur a son tempory score initialisé à 0 et peut lancer un dé autant de fois qu'il le souhaite. Le 
   résultat d’un lancer est ajouté au tempory score. 
@@ -188,28 +190,35 @@ rules.addEventListener("click",()=>{
   - Cliquer sur l’option “Hold”, qui permet d’envoyer les points du tempory score vers le score held. Ce sera alors le
   tour de l’autre joueur.
   - Lancer le dé. S’il obtient un 1, son score temporaire est perdu et c’est la fin de son tour.
-  Le premier joueur qui atteint les 100 points sur score held gagne le jeu`);
+  Le premier joueur qui atteint les 100 points sur score held gagne le jeu`
+  );
 });
 
-// function win 
-let win = player => {
+// function win
+let win = (player) => {
   alert(`Player ${player} Win the Game !`);
-  if(player === 'One') {
-    document.getElementById('P1').innerHTML = "&#127881; Player 1 &#127881;";
+  if (player === "One") {
+    document.getElementById("P1").innerHTML = "&#127881; Player 1 &#127881;";
+
     document.querySelector("#playerOneTemporyScore").innerHTML =
       "You win ! &#x1F609;";
-      document.querySelector("#playerTwoTemporyScore").innerHTML =
+
+    document.querySelector("#playerTwoTemporyScore").innerHTML =
       "You loose ! &#x1F605;";
+
     arrowRight.style.display = "none";
-  } else if(player === 'Two') {
-    document.getElementById('P2').innerHTML = "&#127881; Player 2 &#127881;";
+  } else if (player === "Two") {
+    document.getElementById("P2").innerHTML = "&#127881; Player 2 &#127881;";
+
     document.querySelector("#playerTwoTemporyScore").innerHTML =
       "You win ! &#x1F609;";
-      document.querySelector("#playerOneTemporyScore").innerHTML =
+
+    document.querySelector("#playerOneTemporyScore").innerHTML =
       "You loose ! &#x1F605;";
+
     arrowLeft.style.display = "none";
   }
   btnStartGame.remove();
   btnRoll.remove();
   btnHold.remove();
-}
+};
