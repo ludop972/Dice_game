@@ -12,6 +12,9 @@ const rollSong = document.querySelector("audio");
 arrowLeft.style.display = "none";
 arrowRight.style.display = "none";
 btnNewGame.style.display = "none";
+btnHold.style.display = "none";
+btnRoll.style.display = "none";
+
 const pics = [
   "de_1.png",
   "de_2.png",
@@ -158,6 +161,8 @@ function startGame() {
   playerOne = true;
   arrowLeft.style.display = "block";
   btnNewGame.style.display = "block";
+  btnHold.style.display = "block";
+  btnRoll.style.display = "block";
 }
 
 btnNewGame.addEventListener("click", () => {
