@@ -1,9 +1,10 @@
 # Dice_game
+[title]((https://dice-game-by-ludop.netlify.app/#))
 A Dice Hundred game made for a project training in Js vanilla
 
 ## The rules
 
-**The game includes 2 players on a single screen.
+  The game includes 2 players on a single screen.
   Each player has a temporary score and an overall score (score held).
   At each turn, the player has his temporary score initialized to 0 and can roll a die as many times as he wishes. the
   result of a throw is added to the temporary score.
@@ -11,7 +12,7 @@ A Dice Hundred game made for a project training in Js vanilla
   - Click on the “Hold” option, which sends the points from the temporary score to the held score. It will then be the
   other player's turn.
   - Roll the dice. If he rolls a 1, his temporary score is lost and his turn ends.
-  The first player to reach 100 points on a held score wins the game.**
+  The first player to reach 100 points on a held score wins the game.
 
 
 You can found in app.js some functions :
@@ -34,7 +35,7 @@ btnStartGame.addEventListener("click", () => {
   startGame();
 ```
 
-2. For Roll the dice : 
+2. **For Roll the dice** : 
 ```
 btnRoll.addEventListener("click", () => {
     roll();
@@ -62,7 +63,7 @@ btnRoll.addEventListener("click", () => {
   }, 1800);
 }
 ```
-3. For hold the tempory score :
+3. **For hold the tempory score** :
 ```
 function getScore(score) {
   if (playerOne) {
@@ -155,9 +156,9 @@ function hold() {
   }
 }
 ```
-4. for win the game (score = 100) : 
-5. ```
-6. et win = (player) => {
+4. **for win the game (score = 100)** : 
+ ```
+ let win = (player) => {
   alert(`Player ${player} Win the Game !`);
   if (player === "One") {
     document.getElementById("P1").innerHTML = "&#127881; Player 1 &#127881;";
@@ -184,4 +185,4 @@ function hold() {
   btnRoll.remove();
   btnHold.remove();
 };
-7. ```
+```
