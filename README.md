@@ -1,5 +1,5 @@
 # Dice_game
-[title]((https://dice-game-by-ludop.netlify.app/#))
+[title](https://dice-game-by-ludop.netlify.app/#)
 A Dice Hundred game made for a project training in Js vanilla
 
 ## The rules
@@ -17,7 +17,7 @@ A Dice Hundred game made for a project training in Js vanilla
 
 You can found in app.js some functions :
 
-1. For start the game(every buttons are hidden) : 
+1. **For start the game(every buttons are hidden)** : 
   ```
   function startGame() {
   playerOne = true;
