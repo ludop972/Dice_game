@@ -7,7 +7,8 @@ App build with Html/Css/Bootstrap and Js Vanilla
 You can found in app.js some functions :
 
 1. For start the game(every buttons are hidden) : 
-2. `function startGame() {
+  ```
+  function startGame() {
   playerOne = true;
   arrowLeft.style.display = "block";
   btnNewGame.style.display = "block";
@@ -21,4 +22,4 @@ btnNewGame.addEventListener("click", () => {
 
 btnStartGame.addEventListener("click", () => {
   startGame();
-`
+```
