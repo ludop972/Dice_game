@@ -1,5 +1,5 @@
 # Dice game
-[Click for see the app](https://dice-game-by-ludop.netlify.app/#)
+[Click to see the app](https://dice-game-by-ludop.netlify.app/#)
 A Dice Hundred game made for a project training in Js vanilla
 
 ## The rules
@@ -17,7 +17,7 @@ A Dice Hundred game made for a project training in Js vanilla
 
 You can found in app.js some functions :
 
-1. ### For start the game(every buttons are hidden) : 
+### 1. For start the game(every buttons are hidden) : 
   ```
   function startGame() {
   playerOne = true;
@@ -35,7 +35,7 @@ btnStartGame.addEventListener("click", () => {
   startGame();
 ```
 
-2. **For Roll the dice** : 
+### 2. For Roll the dice : 
 ```
 btnRoll.addEventListener("click", () => {
     roll();
@@ -63,7 +63,7 @@ btnRoll.addEventListener("click", () => {
   }, 1800);
 }
 ```
-3. **For hold the tempory score** :
+### 3. For hold the tempory score :
 ```
 function getScore(score) {
   if (playerOne) {
@@ -156,7 +156,7 @@ function hold() {
   }
 }
 ```
-4. **for win the game (score = 100)** : 
+### 4. for win the game (score = 100) : 
  ```
  let win = (player) => {
   alert(`Player ${player} Win the Game !`);
